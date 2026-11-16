@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #F6F5F0;
+  --color-porcelain: #FFFFFF;
+  --color-line: #E5E4DE;
+  --color-sage: #2C4A3E;
+  --color-ink: #141716;
+  --color-slate: #66706B;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body { background: var(--color-canvas); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 2px; }

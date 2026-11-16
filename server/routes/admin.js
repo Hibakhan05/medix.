@@ -1,0 +1,12 @@
+import { Router } from 'express';
+import { getUsers, addDoctor, toggleStatus, deleteUser, getAppointments, getStats } from '../controllers/adminController.js';
+import { protect, authorizeRoles } from '../middleware/auth.js';
+const r = Router();
+r.use(protect, authorizeRoles('admin'));
+r.get('/users', getUsers);
+r.post('/doctors', addDoctor);
+r.patch('/users/:id/toggle-status', toggleStatus);
+r.delete('/users/:id', deleteUser);
+r.get('/appointments', getAppointments);
+r.get('/stats', getStats);
+export default r;

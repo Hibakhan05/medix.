@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { create, my, forDoctor, setStatus, cancel } from '../controllers/appointmentController.js';
+import { protect, authorizeRoles } from '../middleware/auth.js';
+const r = Router();
+r.use(protect);
+r.post('/', authorizeRoles('patient'), create);
+r.get('/my', authorizeRoles('patient'), my);
+r.get('/doctor', authorizeRoles('doctor'), forDoctor);
+r.patch('/:id/status', authorizeRoles('doctor'), setStatus);
+r.patch('/:id/cancel', authorizeRoles('patient'), cancel);
+export default r;
